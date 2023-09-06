@@ -1,4 +1,3 @@
-import React from "react";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
@@ -12,44 +11,49 @@ function App() {
         {/* Should contain one Skill component
         for each web dev skill that you have,
         customized with props */}
-        <SkillList bgcolor="blue" skill="HTML &amp; CSS&#128170;" />
-        <SkillList bgcolor="yellow" skill="JavaScript&#128170;" />
-        <SkillList bgcolor="limegreen" skill="Web Design&#128077;" />
-        <SkillList bgcolor="red" skill="Git and GitHub&#128170;" />
-        <SkillList bgcolor="skyblue" skill="Tailwind&#128077;" />
+        <SkillList />
       </div>
     </div>
   );
 }
 
 function Avatar(props) {
-  // console.log(props);
   return <img src={props.imageName} alt={props.alt} className="avatar" />;
 }
 
 function Intro() {
   return (
-    <>
-      <h2>Jensen Jacob George</h2>
-      <p className="skill-list">
+    <div>
+      <h1>Jensen Jacob George</h1>
+      <p>
         Full-stack web developer in the making! When I am not coding or
         learning, I like to play one of my two favourite instruments , i.e.
         guitar or keyboard. I also like singing, gaming and watching anime.
       </p>
-    </>
+    </div>
   );
 }
 
 function SkillList(props) {
+  return (
+    <div className="skill-list">
+      <Skill bgcolor="blue" skill="HTML &amp; CSS &#128170;" />
+      <Skill bgcolor="yellow" skill="JavaScript &#128170;" />
+      <Skill bgcolor="limegreen" skill="Web Design &#128077;" />
+      <Skill bgcolor="red" skill="Git and GitHub &#128170;" />
+      <Skill bgcolor="skyblue" skill="Tailwind &#128077;" />
+      <Skill bgcolor="aqua" skill="React &#128170;" />
+      <Skill bgcolor="coral" skill="NextJS &#128118;" />
+    </div>
+  );
+}
+
+function Skill(props) {
   const style = { backgroundColor: props.bgcolor };
   return (
-    <>
-      <div className="skill-list">
-        <div className="skill" style={style}>
-          {props.skill}
-        </div>
-      </div>
-    </>
+    <div className="skill" style={style}>
+      <span>{props.skill}</span>
+    </div>
   );
 }
 
